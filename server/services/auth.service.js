@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import {CustomError} from "../errors/custom.error.js";
 
 export async function hashPassword(password) {
     try {
@@ -11,7 +12,9 @@ export async function hashPassword(password) {
 }
 
 export async function comparePassword(password, hashedPassword) {
-    await bcrypt.compare(password, hashedPassword), (err, _) => {
-        if (err) throw err;
+    try {
+        if (!await bcrypt.compare(password, hashedPassword)) throw new CustomError({ code: 400, message: "Invalid password" });
+    } catch (err) {
+        throw err;
     }
 }
