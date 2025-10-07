@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import {CustomError} from "../errors/custom.error.js";
+import { CustomError } from "../errors/custom.error.js";
 
 export async function hashPassword(password) {
     try {
