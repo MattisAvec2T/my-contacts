@@ -5,7 +5,7 @@ import { CustomError } from "../errors/custom.error.js";
 export default function verifyToken(req, res, next) {
     const token = req.headers.authorization?.split(" ")[1];
 
-    if (!token) {
+    if (!token || req.headers.authorization?.split(" ")[0] !== "Bearer") {
         throw new CustomError({ code: 401, message: "Unauthorized access" });
     }
 
