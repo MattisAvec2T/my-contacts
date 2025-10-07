@@ -8,6 +8,7 @@ Ce mini-projet simule un annuaire de contact. Il utilise une API Express avec un
 
 La documentation complète de l’API est disponible via Swagger à l’endpoint :  
 👉 **[`/api-docs`](https://my-contacts-hzol.onrender.com/api/docs)**
+> _Accéder directement à `api-docs` sur Render nécessite de pré-charger le serveur Render (l'endpoint est toujours accessible en local)_
 
 ### 🔐 Auth Routes (`/auth`)
 
