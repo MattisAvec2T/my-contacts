@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import authService from "../services/auth.service.js";
 
 export default function Register({ onSwitch }) {
@@ -7,7 +6,6 @@ export default function Register({ onSwitch }) {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -22,7 +20,7 @@ export default function Register({ onSwitch }) {
         try {
             await authService.register(email, password, confirmPassword);
 
-            navigate("/login");
+            onSwitch()
         } catch (err) {
             setError(err.error);
         }
