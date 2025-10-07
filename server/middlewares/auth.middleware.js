@@ -3,7 +3,7 @@ import { JWT_SECRET } from "../config/env.config.js";
 import { CustomError } from "../errors/custom.error.js";
 
 export default function verifyToken(req, res, next) {
-    const token = req.cookies.token;
+    const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
         throw new CustomError({ code: 401, message: "Unauthorized access" });

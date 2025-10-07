@@ -31,8 +31,7 @@ export async function loginController(req, res, next) {
             { expiresIn: JWT_EXPIRES_IN }
         );
 
-        delete user.password;
-        res.status(200).cookie("token", token).json({ success: true, message: "User successfully logged in", data: user });
+        res.status(200).json({ success: true, message: "User successfully logged in", token: token });
     } catch (err) {
         next(err);
     }
